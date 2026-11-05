@@ -656,26 +656,27 @@
           </div>
         </div>
 
-        <form class="form-card reveal" id="contact-form" action="https://formsubmit.co/administrativo@ssaadvocacia.com" method="POST" novalidate>
+        <form class="form-card reveal" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <h3>Envie uma mensagem</h3>
           <p class="sub">Preencha seus dados e retornaremos o contato.</p>
-          <input type="hidden" name="_subject" value="Novo contato pelo site ssaadvocacia.com">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <!-- Chave pública do Web3Forms: as mensagens chegam em administrativo@ssaadvocacia.com -->
+          <input type="hidden" name="access_key" value="e69286fd-8b9b-45de-b064-efb232e4e41f">
+          <input type="hidden" name="subject" value="Novo contato pelo site ssaadvocacia.com">
+          <input type="hidden" name="from_name" value="Site SSA Advocacia">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="field">
             <label for="f-nome">Nome completo</label>
-            <input id="f-nome" name="Nome" type="text" autocomplete="name" required>
+            <input id="f-nome" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="form-row">
             <div class="field">
               <label for="f-email">E-mail</label>
-              <input id="f-email" name="E-mail" type="email" autocomplete="email" required>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
             </div>
             <div class="field">
               <label for="f-tel">Telefone / WhatsApp</label>
-              <input id="f-tel" name="Telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(28) 99999-9999" required>
+              <input id="f-tel" name="Telefone / WhatsApp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(28) 99999-9999" required>
             </div>
           </div>
           <div class="field">
@@ -696,7 +697,7 @@
             <textarea id="f-msg" name="Mensagem" placeholder="Conte brevemente como podemos ajudar." required></textarea>
           </div>
           <label class="consent">
-            <input type="checkbox" name="Consentimento LGPD" value="Sim" required>
+            <input type="checkbox" name="Autorização LGPD" value="Sim" required>
             <span>Autorizo o uso dos meus dados exclusivamente para retorno deste contato, nos termos da Lei Geral de Proteção de Dados (Lei 13.709/2018).</span>
           </label>
           <button type="submit" class="btn btn-primary">Enviar mensagem <span aria-hidden="true">→</span></button>
@@ -820,17 +821,22 @@
     submitBtn.disabled = true;
     status.textContent = 'Enviando…';
     try {
-      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      const res = await fetch(form.action, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(form)
       });
-      if (!res.ok) throw new Error(res.status);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) throw new Error(data.message || res.status);
       form.reset();
       status.textContent = 'Mensagem enviada. Em breve entraremos em contato.';
       status.classList.add('ok');
     } catch (err) {
-      status.innerHTML = 'Não foi possível enviar agora. Tente novamente ou <a href="https://wa.me/5528999841890" target="_blank" rel="noopener">fale pelo WhatsApp</a>.';
+      // Se o serviço de envio falhar, a mensagem não se perde: oferece e-mail já preenchido e WhatsApp
+      const v = name => (form.elements[name] && form.elements[name].value) || '';
+      const body = `Nome: ${v('name')}\nE-mail: ${v('email')}\nTelefone: ${v('Telefone / WhatsApp')}\nAssunto: ${v('Assunto') || '-'}\n\n${v('Mensagem')}`;
+      const mailto = 'mailto:administrativo@ssaadvocacia.com?subject=' + encodeURIComponent('Contato pelo site') + '&body=' + encodeURIComponent(body);
+      status.innerHTML = `Não foi possível enviar agora. <a href="${mailto}">Enviar a mesma mensagem por e-mail</a> ou <a href="https://wa.me/5528999841890" target="_blank" rel="noopener">fale pelo WhatsApp</a>.`;
       status.classList.add('err');
     } finally {
       submitBtn.disabled = false;
