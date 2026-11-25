@@ -12,8 +12,14 @@ timezone: America/Sao_Paulo
 permalink: /artigos/:year/:title/
 markdown: kramdown
 
+# O Google lê sozinho o mapa do site (sitemap.xml) e o feed de artigos (feed.xml),
+# que são atualizados automaticamente a cada artigo publicado.
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: feed.xml
 
 defaults:
   - scope:
@@ -21,6 +27,11 @@ defaults:
       type: posts
     values:
       layout: artigo
+  # Arquivo de verificação do Google Search Console: não deve aparecer no mapa do site
+  - scope:
+      path: "google161a3fa07242b4b5.html"
+    values:
+      sitemap: false
 
 exclude:
   - COMO-PUBLICAR.md
