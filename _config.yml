@@ -1,0 +1,28 @@
+# Configuração do site (GitHub Pages / Jekyll)
+# Não é preciso mexer neste arquivo para publicar artigos. Veja COMO-PUBLICAR.md.
+
+title: Sonsim, Santolin & Alves Advogados Associados
+description: Artigos informativos escritos pelos sócios de Sonsim, Santolin & Alves Advogados Associados.
+url: "https://ssaadvocacia.com"
+baseurl: ""
+lang: pt-BR
+timezone: America/Sao_Paulo
+
+# Endereço de cada artigo: ssaadvocacia.com/artigos/2026/nome-do-arquivo/
+permalink: /artigos/:year/:title/
+markdown: kramdown
+
+plugins:
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: artigo
+
+exclude:
+  - COMO-PUBLICAR.md
+  - modelo-de-artigo.md
+  - README.md

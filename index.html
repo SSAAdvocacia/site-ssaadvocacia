@@ -10,8 +10,8 @@
 <meta property="og:description" content="Advocacia empresarial com foco em prevenção, técnica e proximidade.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ssaadvocacia.com/">
-<meta property="og:image" content="https://ebook.ssaadvocacia.com/logo.png">
-<link rel="icon" href="https://ebook.ssaadvocacia.com/logo.png">
+<meta property="og:image" content="https://ssaadvocacia.com/img/logo.png">
+<link rel="icon" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   "@type": "LegalService",
   "name": "Sonsim, Santolin & Alves Advogados Associados",
   "url": "https://ssaadvocacia.com/",
-  "logo": "https://ebook.ssaadvocacia.com/logo.png",
+  "logo": "https://ssaadvocacia.com/img/logo.png",
   "telephone": "+55 28 99984-1890",
   "email": "administrativo@ssaadvocacia.com",
   "sameAs": ["https://www.instagram.com/ssa_advogadoss/"],
@@ -64,7 +64,7 @@
   p { margin: 0 0 1em; }
   /* Justificado só onde a coluna é larga o bastante para não abrir espaços entre as palavras */
   @media (min-width: 561px) {
-    .ebook p, .contact .intro, .footer-legal p:first-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+    .contact .intro, .footer-legal p:first-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   }
   .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
   .eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dark); }
@@ -212,6 +212,8 @@
   .member .focus { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
   .member .focus li { list-style: none; font-size: 13px; padding: 5px 11px; background: #f0f1e9; color: var(--green); }
   .member .focus { padding: 0; margin-top: 0; }
+  .member-link { font-size: 14px; font-weight: 600; color: var(--green); text-decoration: none; margin-bottom: 20px; }
+  .member-link:hover { color: var(--gold-dark); }
   .member details { margin-top: auto; border-top: 1px solid var(--line); padding-top: 16px; }
   .member summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--green); list-style: none; display: flex; justify-content: space-between; }
   .member summary::-webkit-details-marker { display: none; }
@@ -219,13 +221,17 @@
   .member details[open] summary::after { content: "–"; }
   .member details p { font-size: 15px; color: #3c4532; margin: 14px 0 0; }
 
-  /* Ebook */
-  .ebook { background: var(--cream); padding: 0; }
-  .ebook .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 72px; align-items: center; padding-top: 96px; padding-bottom: 96px; }
-  .ebook img { width: 100%; max-width: 380px; justify-self: center; box-shadow: 0 30px 60px -30px rgba(38,48,30,.45); transform: rotate(-3deg); }
-  .ebook h2 { font-size: clamp(32px, 3.6vw, 46px); margin: 18px 0 20px; }
-  .ebook h2 em { color: var(--gold-dark); }
-  .ebook p { color: #3c4532; max-width: 34em; margin-bottom: 32px; }
+  /* Artigos */
+  .articles { background: var(--cream); }
+  .author-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .author-card { display: flex; align-items: center; gap: 18px; padding: 18px; background: #fff; border: 1px solid var(--line); text-decoration: none; transition: border-color .3s, box-shadow .3s, transform .3s; }
+  .author-card img { width: 84px; height: 84px; object-fit: cover; flex: none; }
+  .author-body { display: flex; flex-direction: column; gap: 4px; }
+  .author-body strong { font: 400 19px/1.25 var(--serif); }
+  .author-body span { font-size: 14px; color: var(--muted); line-height: 1.45; }
+  .author-body em { font-style: normal; font-size: 14px; font-weight: 600; color: var(--green); margin-top: 4px; }
+  .author-card.reveal.in:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 18px 34px -26px rgba(38,48,30,.5); }
+  .articles-all { margin: 40px 0 0; text-align: center; }
 
   /* Contact */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
@@ -305,15 +311,15 @@
     .fact { padding: 24px 20px; }
     .fact:nth-child(odd) { border-left: 0; padding-left: 0; }
     .fact:nth-child(n+3) { border-top: 1px solid rgba(238,240,231,.12); }
-    .section-head, .about-grid, .contact-grid, .ebook .wrap { grid-template-columns: 1fr; gap: 28px; }
+    .section-head, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
     .values { margin-top: 56px; }
     .values ul { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .team-grid { grid-template-columns: 1fr; max-width: 560px; }
+    .author-grid { grid-template-columns: 1fr; max-width: 560px; }
     .area-body { grid-template-columns: 1fr; }
     .area-body > p, .area-body ul { grid-column: 1; }
     .area summary { grid-template-columns: 44px 1fr 44px; }
-    .ebook img { max-width: 260px; }
     .menu-toggle { display: block; }
     .nav { position: absolute; top: 84px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #fff; border-bottom: 1px solid var(--line); padding: 8px 24px 24px; display: none; }
     .nav.open { display: flex; }
@@ -342,7 +348,7 @@
 <header class="site-header">
   <div class="wrap">
     <a href="#inicio" class="brand" aria-label="Sonsim, Santolin & Alves Advogados Associados – início">
-      <img src="https://ebook.ssaadvocacia.com/logo.png" alt="Sonsim, Santolin & Alves Advogados Associados" width="200" height="58">
+      <img src="/img/logo.png" alt="Sonsim, Santolin & Alves Advogados Associados" width="200" height="58">
     </a>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
@@ -351,7 +357,7 @@
       <a href="#escritorio">O escritório</a>
       <a href="#areas">Áreas de atuação</a>
       <a href="#equipe">Equipe</a>
-      <a href="#conteudo">Conteúdo</a>
+      <a href="#artigos">Artigos</a>
       <a href="#contato" class="btn btn-primary">Fale conosco</a>
     </nav>
   </div>
@@ -567,6 +573,7 @@
             <h3>Dr. João Mário Sonsim de Souza</h3>
             <p class="oab">OAB/ES nº 33.367</p>
             <ul class="focus"><li>Trabalhista</li><li>Compliance</li><li>Contratos</li></ul>
+            <a class="member-link" href="/socios/joao-mario-sonsim/">Artigos do Dr. João Mário →</a>
             <details>
               <summary>Formação e atuação</summary>
               <p>Graduado em Direito pela Faculdade de Direito de Cachoeiro de Itapemirim (FDCI), é pós-graduado em Direito e Processo do Trabalho pela Faculdade Metropolitana e em Perícias e Auditorias Trabalhistas pela Escola Mineira de Direito.</p>
@@ -582,6 +589,7 @@
             <h3>Dra. Marcela Santolin Coutinho</h3>
             <p class="oab">OAB/ES nº 34.942</p>
             <ul class="focus"><li>Cível</li><li>Consumidor</li><li>Família</li><li>Mediação</li></ul>
+            <a class="member-link" href="/socios/marcela-santolin/">Artigos da Dra. Marcela →</a>
             <details>
               <summary>Formação e atuação</summary>
               <p>Graduada em Direito pela Faculdade de Direito de Cachoeiro de Itapemirim (FDCI), possui especializações em Direito de Família e Sucessões pela UniDomBosco e em Conciliação e Mediação de Conflitos pelo Centro de Mediadores Instituto de Ensino.</p>
@@ -597,6 +605,7 @@
             <h3>Dr. Gedson Alves da Silva</h3>
             <p class="oab">OAB/ES nº 37.286</p>
             <ul class="focus"><li>Direito Público</li><li>Médico</li><li>Ambiental</li></ul>
+            <a class="member-link" href="/socios/gedson-alves/">Artigos do Dr. Gedson →</a>
             <details>
               <summary>Formação e atuação</summary>
               <p>Advogado e servidor público de carreira, é Técnico Legislativo Sênior do Poder Legislativo do Município de Marataízes. Especialista em Direito Público (Constitucional, Administrativo e Tributário) pela PUCRS e em Direito Médico e Bioética pela EBRADI; pós-graduado em Responsabilidade Médica pelo Centro de Direito Biomédico da Faculdade de Direito da Universidade de Coimbra, em Portugal; e certificado em Direito Digital e Legal Tech pela PUCRS.</p>
@@ -608,15 +617,42 @@
     </div>
   </section>
 
-  <section class="ebook" id="conteudo">
+  <section class="articles" id="artigos">
     <div class="wrap">
-      <img src="https://ebook.ssaadvocacia.com/capa-ebook.png" alt="Capa do e-book 7 erros jurídicos que podem custar caro à sua empresa" loading="lazy">
-      <div class="reveal">
-        <span class="eyebrow">Material gratuito</span>
-        <h2><em>7</em> erros jurídicos que podem custar caro à sua empresa</h2>
-        <p>Um checklist com 35 perguntas de conferência para identificar pontos de atenção na gestão de pessoas, nos contratos e nos recebimentos. Material informativo para empresários e gestores.</p>
-        <a href="https://ebook.ssaadvocacia.com/" class="btn btn-primary" target="_blank" rel="noopener">Acessar o e-book <span aria-hidden="true">↗</span></a>
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Artigos</span>
+          <h2>Conteúdo escrito pelos sócios.</h2>
+        </div>
+        <p>Textos informativos sobre os temas em que cada advogado atua. Escolha um autor para ver os artigos publicados.</p>
       </div>
+      <div class="author-grid">
+        <a class="author-card reveal" href="/socios/joao-mario-sonsim/">
+          <img src="img/joao.jpg" alt="" width="720" height="799" loading="lazy" style="object-position: 50% 22%">
+          <span class="author-body">
+            <strong>Dr. João Mário Sonsim de Souza</strong>
+            <span>Direito do Trabalho, compliance trabalhista e contratos empresariais</span>
+            <em>Ler artigos →</em>
+          </span>
+        </a>
+        <a class="author-card reveal" href="/socios/marcela-santolin/">
+          <img src="img/marcela.jpg" alt="" width="720" height="1080" loading="lazy" style="object-position: 50% 32%">
+          <span class="author-body">
+            <strong>Dra. Marcela Santolin Coutinho</strong>
+            <span>Direito Civil, do Consumidor, de Família e Sucessões e mediação</span>
+            <em>Ler artigos →</em>
+          </span>
+        </a>
+        <a class="author-card reveal" href="/socios/gedson-alves/">
+          <img src="img/gedson.jpg" alt="" width="720" height="1081" loading="lazy" style="object-position: 50% 30%">
+          <span class="author-body">
+            <strong>Dr. Gedson Alves da Silva</strong>
+            <span>Direito Público, Direito Médico e Bioética e Direito Ambiental</span>
+            <em>Ler artigos →</em>
+          </span>
+        </a>
+      </div>
+      <p class="articles-all reveal"><a href="/artigos/" class="btn btn-primary">Ver todos os artigos <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -725,6 +761,7 @@
         <a href="#areas">Áreas de atuação</a>
         <a href="#equipe">Equipe</a>
         <a href="#contato">Contato</a>
+        <a href="/artigos/">Artigos</a>
         <a href="privacidade.html">Política de Privacidade</a>
         <a href="https://www.instagram.com/ssa_advogadoss/" target="_blank" rel="noopener" class="footer-social">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.2-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
