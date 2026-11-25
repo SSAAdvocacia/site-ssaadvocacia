@@ -1,0 +1,44 @@
+---
+layout: base
+---
+{%- assign s = site.data.socios[page.socio] -%}
+{%- assign artigos = site.posts | where: "autor", page.socio -%}
+
+<section class="page-head">
+  <div class="wrap profile">
+    <div class="profile-photo">
+      <img src="{{ s.foto }}" alt="{{ s.nome }}" style="object-position: {{ s.foto_posicao }}">
+    </div>
+    <div>
+      <span class="role">{{ s.cargo }}</span>
+      <h1>{{ s.nome }}</h1>
+      <p class="oab">{{ s.oab }}</p>
+      <ul class="tags">
+        {%- for tema in s.temas %}<li>{{ tema }}</li>{% endfor %}
+      </ul>
+      <div class="bio">
+        {%- for paragrafo in s.bio %}
+        <p>{{ paragrafo }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Artigos</h2>
+      <span>{% if artigos.size == 1 %}1 artigo publicado{% elsif artigos.size > 1 %}{{ artigos.size }} artigos publicados{% endif %}</span>
+    </div>
+
+    {%- if artigos.size > 0 %}
+      {% include lista-artigos.html artigos=artigos %}
+    {%- else %}
+    <div class="empty">
+      <h3>Novos artigos em breve.</h3>
+      <p>{{ s.resumo }}</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>

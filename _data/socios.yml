@@ -1,0 +1,51 @@
+# Dados de cada sócio usados nas páginas de artigos.
+# A chave (joao, marcela, gedson) é o que se escreve no campo "autor" de cada artigo.
+
+joao:
+  nome: Dr. João Mário Sonsim de Souza
+  cargo: Sócio
+  oab: OAB/ES nº 33.367
+  foto: /img/joao.jpg
+  foto_posicao: 50% 28%
+  url: /socios/joao-mario-sonsim/
+  temas:
+    - Direito do Trabalho
+    - Compliance trabalhista
+    - Contratos empresariais
+  resumo: Artigos sobre Direito do Trabalho, compliance trabalhista, prevenção de passivos e contratos empresariais.
+  bio:
+    - Graduado em Direito pela Faculdade de Direito de Cachoeiro de Itapemirim (FDCI), é pós-graduado em Direito e Processo do Trabalho pela Faculdade Metropolitana e em Perícias e Auditorias Trabalhistas pela Escola Mineira de Direito.
+    - Atua nas áreas Trabalhista e Empresarial, com forte atuação em compliance trabalhista, especialmente em auditorias jurídicas, implantação de controles internos, mapeamento de riscos e assessoramento preventivo, além da elaboração, análise e revisão de contratos empresariais.
+
+marcela:
+  nome: Dra. Marcela Santolin Coutinho
+  cargo: Sócia
+  oab: OAB/ES nº 34.942
+  foto: /img/marcela.jpg
+  foto_posicao: 50% 34%
+  url: /socios/marcela-santolin/
+  temas:
+    - Direito Civil
+    - Direito do Consumidor
+    - Família e Sucessões
+    - Mediação
+  resumo: Artigos sobre Direito Civil, relações de consumo, contratos, Direito de Família e Sucessões e solução consensual de conflitos.
+  bio:
+    - Graduada em Direito pela Faculdade de Direito de Cachoeiro de Itapemirim (FDCI), possui especializações em Direito de Família e Sucessões pela UniDomBosco e em Conciliação e Mediação de Conflitos pelo Centro de Mediadores Instituto de Ensino.
+    - Atua nas áreas Cível e Empresarial, com ênfase em Direito do Consumidor, Direito Contratual e Direito de Família, com estratégias pautadas na prevenção de litígios e na solução consensual de conflitos, quando cabível.
+
+gedson:
+  nome: Dr. Gedson Alves da Silva
+  cargo: Sócio
+  oab: OAB/ES nº 37.286
+  foto: /img/gedson.jpg
+  foto_posicao: 50% 30%
+  url: /socios/gedson-alves/
+  temas:
+    - Direito Público
+    - Direito Médico e Bioética
+    - Direito Ambiental
+  resumo: Artigos sobre Direito Público, Direito Médico e Bioética, responsabilidade médica e Direito Ambiental.
+  bio:
+    - Advogado e servidor público de carreira, Técnico Legislativo Sênior do Poder Legislativo do Município de Marataízes. Especialista em Direito Público pela PUCRS e em Direito Médico e Bioética pela EBRADI, pós-graduado em Responsabilidade Médica pela Universidade de Coimbra e certificado em Direito Digital e Legal Tech pela PUCRS.
+    - Licenciado em Ciências Biológicas, é também consultor ambiental e professor, com trabalhos publicados em periódicos nacionais e internacionais.

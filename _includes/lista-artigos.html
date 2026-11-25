@@ -1,0 +1,14 @@
+{%- comment -%} Lista de artigos. Recebe include.artigos e, opcionalmente, include.mostrar_autor. {%- endcomment -%}
+<ul class="post-list">
+  {%- for post in include.artigos %}
+  {%- assign autor = site.data.socios[post.autor] %}
+  <li class="post-item">
+    <a href="{{ post.url }}">
+      <span class="meta">{% include data-pt.html data=post.date %}{% if include.mostrar_autor and autor %} · {{ autor.nome }}{% endif %}</span>
+      <h3>{{ post.title }}</h3>
+      <p class="excerpt">{{ post.resumo | default: post.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

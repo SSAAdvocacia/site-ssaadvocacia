@@ -1,0 +1,41 @@
+---
+layout: base
+---
+{%- assign s = site.data.socios[page.autor] -%}
+
+<section class="page-head article-head">
+  <div class="wrap">
+    <p class="crumbs"><a href="/artigos/">Artigos</a>{% if s %} · <a href="{{ s.url }}">{{ s.nome }}</a>{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.resumo %}<p>{{ page.resumo }}</p>{% endif %}
+    <div class="byline">
+      {%- if s %}<img src="{{ s.foto }}" alt="" style="object-position: {{ s.foto_posicao }}">{% endif %}
+      <div>
+        {%- if s %}<a href="{{ s.url }}">{{ s.nome }}</a>{% endif %}
+        <span>{% include data-pt.html data=page.date %}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<article class="article-body">
+{{ content }}
+</article>
+
+<div class="notice">
+  <p>Este artigo tem caráter exclusivamente informativo e não constitui consulta ou parecer jurídico. Cada situação deve ser analisada individualmente por um advogado.</p>
+</div>
+
+{%- if s %}
+<aside class="author-box" aria-label="Sobre o autor">
+  <div>
+    <img src="{{ s.foto }}" alt="{{ s.nome }}" style="object-position: {{ s.foto_posicao }}">
+    <div>
+      <span class="role">{{ s.cargo }} · {{ s.oab }}</span>
+      <strong>{{ s.nome }}</strong>
+      <p>{{ s.resumo }}</p>
+      <a href="{{ s.url }}">Ver todos os artigos →</a>
+    </div>
+  </div>
+</aside>
+{%- endif %}

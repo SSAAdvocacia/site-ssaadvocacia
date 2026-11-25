@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}Sonsim, Santolin & Alves</title>
+<meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<meta property="og:type" content="{% if page.layout == 'artigo' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="https://ssaadvocacia.com/img/logo.png">
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/paginas.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Sonsim, Santolin & Alves Advogados Associados – página inicial">
+      <img src="/img/logo.png" alt="Sonsim, Santolin & Alves Advogados Associados" width="200" height="58">
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="/#escritorio">O escritório</a>
+      <a href="/#areas">Áreas de atuação</a>
+      <a href="/#equipe">Equipe</a>
+      <a href="/artigos/"{% if page.url contains '/artigos/' or page.url contains '/socios/' %} aria-current="page"{% endif %}>Artigos</a>
+      <a href="/#contato" class="btn">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <strong>Sonsim, Santolin & Alves</strong>
+      <nav aria-label="Rodapé">
+        <a href="/">Início</a>
+        <a href="/artigos/">Artigos</a>
+        <a href="/#contato">Contato</a>
+        <a href="/privacidade.html">Política de Privacidade</a>
+        <a href="https://www.instagram.com/ssa_advogadoss/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <p>Sonsim, Santolin & Alves Advogados Associados · Sociedade de advogados registrada na OAB/ES sob o nº 23.002432-3533 · CNPJ 50.209.470/0001-38 · Rua Rubens Rangel, 26, Térreo 01, Otton Marins, Cachoeiro de Itapemirim/ES, CEP 29301-802. Conteúdo de caráter exclusivamente informativo, em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021 do Conselho Federal.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5528999841890" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.2-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.38-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+</a>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('nav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+</body>
+</html>

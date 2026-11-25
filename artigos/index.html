@@ -1,0 +1,39 @@
+---
+layout: base
+title: Artigos
+description: Artigos informativos escritos pelos sócios de Sonsim, Santolin & Alves Advogados Associados.
+permalink: /artigos/
+---
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Artigos</span>
+    <h1>Conteúdo escrito pelos sócios.</h1>
+    <p>Textos informativos sobre Direito do Trabalho, Direito Civil e de Família, Direito Público, Médico e Ambiental e temas empresariais.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="authors">
+      {%- for item in site.data.socios %}
+      {%- assign s = item[1] %}
+      <a class="author-chip" href="{{ s.url }}">
+        <img src="{{ s.foto }}" alt="" style="object-position: {{ s.foto_posicao }}">
+        <span><strong>{{ s.nome }}</strong><span>{{ s.temas | join: " · " }}</span></span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    <div class="section-title">
+      <h2>Publicações recentes</h2>
+    </div>
+    {%- if site.posts.size > 0 %}
+      {% include lista-artigos.html artigos=site.posts mostrar_autor=true %}
+    {%- else %}
+    <div class="empty">
+      <h3>Novos artigos em breve.</h3>
+      <p>Em breve, os sócios publicarão aqui textos informativos sobre as suas áreas de atuação.</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>
